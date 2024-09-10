@@ -5,7 +5,7 @@ import { FaRegCircleUser } from "react-icons/fa6";
 
 function Header() {
   return (
-    <div className="text-lg flex flex-row justify-around p-4 items-center bg-opacity-100">
+    <div className="text-lg flex flex-row justify-around p-4 items-center opacity-100">
       <h1 className="text-Ptext flex items-center opacity-90"><TbCircleLetterBFilled />Movie</h1>
 
       <nav>

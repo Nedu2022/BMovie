@@ -6,8 +6,8 @@ const trendingMovies = [
   {id: 3, title: "Movie 3", posterImage: EncatoImage},
   {id: 4, title: "Movie 4", posterImage: EncatoImage},
   {id: 5, title: "Movie 5", posterImage: EncatoImage},
-  {id: 5, title: "Movie 5", posterImage: EncatoImage},
-  {id: 5, title: "Movie 5", posterImage: EncatoImage},
+  {id: 6, title: "Movie 5", posterImage: EncatoImage},
+  {id: 7, title: "Movie 5", posterImage: EncatoImage},
 ]
 
 
