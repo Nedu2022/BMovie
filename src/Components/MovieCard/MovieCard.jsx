@@ -1,24 +1,23 @@
 import PropTypes from 'prop-types';
 
-function MovieCard({ movie }) {
-  const posterUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-
+const MovieCard = ({ movie }) => {
   return (
-    <div className="flex flex-col">
+    <div className="movie-card">
       <img
-        src={posterUrl}
-        alt={movie.title}
-        className="w-48 h-72 mb-2 rounded-3xl object-cover"
+        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+        alt={movie.title || movie.name} // Use movie.title for movies and movie.name for TV shows
+        className="movie-card-image"
       />
-      <h3 className="text-sm font-bold">{movie.title}</h3>
+      <h3>{movie.title || movie.name}</h3> {/* Use title for movies, name for TV shows */}
     </div>
   );
-}
+};
 
 MovieCard.propTypes = {
   movie: PropTypes.shape({
+    title: PropTypes.string,  // Make this optional
+    name: PropTypes.string,   // Add name for TV shows
     poster_path: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
   }).isRequired,
 };
 

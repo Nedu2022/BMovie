@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import Header from './Header/Header';
 import HeroSlide from './Hero-Slide/HeroSlide';
 import UpcomingMovieList from './MovieList/UpcomingMovieList';
-import TrendingMovieList from './MovieList/TrendingMovieList';
 import TopRatedMovies from './MovieList/TopRatedMovieList';
-import PopularMovies from './MovieList/PopularMovieList';
+import Footer from "./Footer";
+import PopularTvList from "./MovieList/PopularTvList";
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -58,10 +58,14 @@ function App() {
         <Header />
         {currentMovie && <HeroSlide currentMovie={currentMovie} />}
       </div>
+      <div>
       <UpcomingMovieList />
-      <TrendingMovieList />
       <TopRatedMovies />
-      <PopularMovies />
+      <PopularTvList/>
+      </div>
+  
+      <Footer/>
+     
     </>
   );
 }
