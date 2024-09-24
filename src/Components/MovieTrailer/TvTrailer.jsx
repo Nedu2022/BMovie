@@ -5,7 +5,7 @@ import NoTrailerPage from "../Widgets/NoTrailerPage";
 
 const MovieTrailer = () => {
   const { id } = useParams();
-  const [trailer, setTrailer] = useState(null);
+  const [tvtrailer, setTvTrailer] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -13,7 +13,7 @@ const MovieTrailer = () => {
     const fetchTrailer = async () => {
       try {
         const movieResponse = await fetch(
-          `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${import.meta.env.VITE_APP_API_KEY}`
+          `https://api.themoviedb.org/3/tv/${id}/videos?api_key=${import.meta.env.VITE_APP_API_KEY}`
         );
 
         // Handle response errors
@@ -33,7 +33,7 @@ const MovieTrailer = () => {
         console.log("Trailer Video:", trailerVideo);
 
         // If a trailer is found, set the YouTube video key
-        setTrailer(trailerVideo ? trailerVideo.key : null);
+        setTvTrailer(trailerVideo ? trailerVideo.key : null);
         setLoading(false);
       } catch (err) {
         console.error("Error fetching movie trailer:", err);
@@ -56,7 +56,7 @@ const MovieTrailer = () => {
   }
 
   // Show NoTrailerPage if no trailer is found
-  if (!trailer) {
+  if (!tvtrailer) {
     console.log("No trailer available, showing NoTrailerPage");
     return <NoTrailerPage />;
   }
@@ -68,7 +68,7 @@ const MovieTrailer = () => {
         <iframe
           width="100%"
           height="500"
-          src={`https://www.youtube.com/embed/${trailer}`}
+          src={`https://www.youtube.com/embed/${tvtrailer}`}
           title="Movie Trailer"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

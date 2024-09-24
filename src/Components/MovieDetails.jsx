@@ -4,6 +4,8 @@ import Footer from './Footer';
 import Header from './Header/Header';
 import Similar from './MovieList/Similar';
 import MovieTrailer from './MovieTrailer/MovieTrailer';
+import LoadingPage from './Widgets/LoadingPage';
+import ErrorPage from './Widgets/ErrorPage';
 
 const MovieDetails = () => {
   const { id } = useParams(); // Access the movie ID from the URL
@@ -41,11 +43,11 @@ const MovieDetails = () => {
   }, [id]);
 
   if (loading) {
-    return <div>Loading...</div>; // Show loading state
+    return <LoadingPage/>; // Show loading state
   }
 
   if (error) {
-    return <div>Error: {error}</div>; // Show error message
+    return <ErrorPage/>; // Show error message
   }
 
   return (

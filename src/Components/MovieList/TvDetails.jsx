@@ -3,13 +3,16 @@ import { useParams } from 'react-router-dom';
 import Footer from '../Footer';
 import Header from '../Header/Header';
 import SimilarTv from './SimilarTv';
+import LoadingPage from '../Widgets/LoadingPage';
+import ErrorPage from '../Widgets/ErrorPage';
+import TvTrailer from '../MovieTrailer/TvTrailer'
 
 const TvDetails = () => {
-  const { id } = useParams(); // Access the TV show ID from the URL
-  const [tv, setTv] = useState(null); // TV show details state
-  const [cast, setCast] = useState([]); // Cast information state
-  const [loading, setLoading] = useState(true); // Loading state
-  const [error, setError] = useState(null); // Error handling
+  const { id } = useParams(); 
+  const [tv, setTv] = useState(null); 
+  const [cast, setCast] = useState([]); 
+  const [loading, setLoading] = useState(true); 
+  const [error, setError] = useState(null); 
 
   const imageBaseUrl = "https://image.tmdb.org/t/p/original"; // Base URL for images
 
@@ -40,11 +43,11 @@ const TvDetails = () => {
   }, [id]);
 
   if (loading) {
-    return <div>Loading...</div>; // Show loading state
+    return <LoadingPage/>; // Show loading state
   }
 
   if (error) {
-    return <div>Error: {error}</div>; // Show error message
+    return <ErrorPage/>; // Show error message
   }
 
   return (
@@ -88,9 +91,7 @@ const TvDetails = () => {
         </div>
       </div>
 
-      <div>
-        <h1 className="text-3xl font-bold text-center my-8">International Trailer</h1>
-      </div>
+      <TvTrailer/>
 
       <SimilarTv />
       <Footer />
