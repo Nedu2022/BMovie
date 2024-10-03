@@ -66,7 +66,7 @@ const TvDetails = () => {
             <img
               src={`${imageBaseUrl}${tv.poster_path}`}
               alt={tv.name}
-              className="w-96 sm:hidden rounded-2xl shadow-3xl"
+              className="w-96 sm:hidden lg:block rounded-2xl shadow-3xl"
             />
             <div className="ml-6 max-w-screen-lg flex flex-col justify-center">
               <h1 className="text-6xl font-bold mb-6">{tv.name}</h1>
