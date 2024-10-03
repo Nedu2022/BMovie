@@ -58,7 +58,7 @@ const MovieTrailer = () => {
   // Show NoTrailerPage if no trailer is found
   if (!trailer) {
     console.log("No trailer available, showing NoTrailerPage");
-    return <NoTrailerPage />;
+    return <NoTrailerPage h1="No Trailer Available" p="Sorry, the trailer for this movie is not currently available." />;
   }
 
   // If trailer exists, render the YouTube iframe

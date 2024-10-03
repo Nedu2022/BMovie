@@ -61,12 +61,12 @@ const TvDetails = () => {
         {/* Header and TV show details content */}
         <Header />
 
-        <div className="tv-details p-6 text-white relative z-20">
-          <div className="flex mt-36 ml-32 ">
+        <div className="tv-details lg:p-6 text-white relative z-20">
+          <div className="flex mt-36 lg:ml-32 ">
             <img
               src={`${imageBaseUrl}${tv.poster_path}`}
               alt={tv.name}
-              className="w-96 rounded-2xl shadow-3xl"
+              className="w-96 sm:hidden rounded-2xl shadow-3xl"
             />
             <div className="ml-6 max-w-screen-lg flex flex-col justify-center">
               <h1 className="text-6xl font-bold mb-6">{tv.name}</h1>

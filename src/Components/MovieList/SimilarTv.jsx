@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import MovieCard from '../MovieCard/MovieCard';
+import NoTrailerPage from '../Widgets/NoTrailerPage';
 
 function SimilarTv() {
   const [similarTv, setSimilarTv] = useState([]);
@@ -29,6 +30,7 @@ function SimilarTv() {
       <div className="items-center mb-8 mx-auto">
         <h2 className="text-2xl sm:pl-5 font-bold">Similar Tv Shows</h2>
       </div>
+      {similarTv.length > 0 ? (
       <div className="flex overflow-x-scroll space-x-4 scrollbar-hide p-4" style={{ scrollBehavior: 'smooth' }}>
         {similarTv.map((tv) => (
           <Link to={`/tv/${tv.id}`} key={tv.id} className="min-w-[200px]">
@@ -36,6 +38,9 @@ function SimilarTv() {
           </Link>
         ))}
       </div>
+      ) : (
+       <NoTrailerPage h1="No Similar TV Available" p="Sorry, there are no similar TV shows."/>
+      )} 
     </div>
   );
 }
