@@ -6,8 +6,7 @@ import Similar from "./MovieList/Similar";
 import MovieTrailer from "./MovieTrailer/MovieTrailer";
 import LoadingPage from "./Widgets/LoadingPage";
 import ErrorPage from "./Widgets/ErrorPage";
-import SimilarMovies from "./MovieList/Similar";
-import NoTrailerPage from "./Widgets/NoTrailerPage";
+
 
 const MovieDetails = () => {
   const { id } = useParams(); // Access the movie ID from the URL
@@ -85,10 +84,7 @@ const MovieDetails = () => {
               <p>{movie.overview}</p>
               <div className="flex flex-col">
                 <h2 className="text-2xl mt-6">Cast:</h2>
-                <div className="flex flex-row space-x-8">
-                  {SimilarMovies.length > 0 ? (
-
-                 
+                <div className="flex flex-row space-x-8">                 
                   <div className="flex flex-row space-x-4 overflow-x-scroll lg:p-4">
                     {cast.map((actor) => (
                       <div key={actor.id} className="flex-shrink-0 text-center">
@@ -105,7 +101,6 @@ const MovieDetails = () => {
                       </div>
                     ))}
                   </div>
-                   ) :  <NoTrailerPage h1="No Similar Movies Available" p="Sorry, there are no similar movies."/>}
                 </div>
               </div>
             </div>

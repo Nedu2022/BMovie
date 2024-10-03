@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import MovieCard from '../MovieCard/MovieCard';
+import NoTrailerPage from '../Widgets/NoTrailerPage';
 
 function SimilarMovies() {
   const [similarMovies, setSimilarMovies] = useState([]);
@@ -29,6 +30,10 @@ function SimilarMovies() {
       <div className="items-center mb-8 mx-auto">
         <h2 className="text-2xl sm:pl-5 font-bold">Similar Movies</h2>
       </div>
+
+      {similarMovies.length > 0 ? (
+
+      
       <div className="flex overflow-x-scroll space-x-4 scrollbar-hide p-4" style={{ scrollBehavior: 'smooth' }}>
         {similarMovies.map((movie) => (
           <Link to={`/movie/${movie.id}`} key={movie.id} className="min-w-[200px]">
@@ -36,6 +41,9 @@ function SimilarMovies() {
           </Link>
         ))}
       </div>
+      ) : <NoTrailerPage h1="No Similar Movies Available" p="Sorry, there are no similar movie available."/>}
+
+
     </div>
   );
 }
